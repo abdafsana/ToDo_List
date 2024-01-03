@@ -28,51 +28,45 @@
       <section class="todo-section">
         <div class="container todo-container">
           <form class="todo-container--create">
-            <input type="checkbox" class="todo-checkbox" />
+            <input type="checkbox" class="todo-checkbox todo-chck"/>
             <input
               type="text"
               class="todo-text"
               placeholder="Create a new todo…"
+              name="todoList"
             />
           </form>
-          <!-- <ul class="todo-list">
-            <li class="todo-list--item">
-                <div class="list-item">
-              <input type="checkbox" class="todo-checkbox active-checkbox" />
-              <p class="todo-list--about">Jog around the park 3x</p>
-              <img src="./assets/image/remove.svg" alt="">
+          <ul class="todo-list"></ul>
+          <div class="list-footer">
+            <div class="list-footer--item">
+              <p>5 minutes left</p>
             </div>
-        </li>
-            <div class="list-footer">
-                <div class="list-footer--item">
-                    <p>5 minutes left</p>
-                </div>
-                <div class="list-footer--item">
-                    <ul class="footer-list">
-                        <li>
-                            <a href="">All</a>
-                        </li>
-                        <li>
-                            <a href="">Active</a>
-                        </li>
-                        <li>
-                            <a href="">Completed</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="list-footer--item">
-                    <p>Clear Completed</p>
-                </div>
+            <div class="list-footer--item">
+              <ul class="footer-list">
+                <li>
+                  <a href="">All</a>
+                </li>
+                <li>
+                  <a href="">Active</a>
+                </li>
+                <li>
+                  <a href="">Completed</a>
+                </li>
+              </ul>
             </div>
-          </ul> -->
+            <div class="list-footer--item">
+              <p>Clear Completed</p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
     <!-- Footer section -->
     <footer>
-        <div class="container footer-container">
-            <p>Drag and drop to reorder list</p>
-        </div>
+      <div class="container footer-container">
+        <p>Drag and drop to reorder list</p>
+      </div>
     </footer>
+    <script src="./app.js"></script>
   </body>
 </html>
