@@ -8,6 +8,7 @@
   --bg-white: #fff;
   --bg-Mercury: #e3e4f1;
   --bg-OsloGrey: #908f8f;
+  --bg--GreyGoose:#D1D2DA;
   --bg-DodgerBlue: #3a7cfd;
   --bg-MulledWine: #494c6b;
   --bg-MountainMist: #9495a5;
@@ -201,4 +202,5 @@ input:focus-visible {
 }
 .active{
   text-decoration: line-through;
+  color: var(--bg--GreyGoose,#D1D2DA);
 }
