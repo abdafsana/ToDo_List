@@ -16,7 +16,7 @@ function CreateList() {
   li.innerHTML = `
     <input type="checkbox" class="todo-checkbox active-checkbox"  />
     <p class="todo-list--about" onclick="TxtDecoration(this)">${txtbutton.value}</p>
-    <img src="./assets/image/remove.svg" alt="" />
+    <img src="./assets/image/remove.svg" alt="" / onclick="RemoveList(this)">
     `;
   todolist.appendChild(li);
   txtbutton.value = "";
@@ -24,5 +24,10 @@ function CreateList() {
 }
 
 function TxtDecoration(event) {
-    event.classList.toggle("active");
+  event.classList.toggle("active");
+  // const cancel=document.querySelector(".todo-list--item img")
+  // cancel.style.display="block";
+}
+function RemoveList(event){
+  event.parentElement.remove();
 }

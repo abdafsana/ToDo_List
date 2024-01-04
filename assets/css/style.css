@@ -141,12 +141,11 @@
   align-items: center;
   padding-left: 40px;
   cursor: pointer;
-  /* text-decoration: line-through; */
 }
-.list-item > img {
+.todo-list--item > img {
   width: 17.678px;
   height: 17.678px;
-  display: none;
+  cursor: pointer !important;
 }
 .list-footer {
   width: 100%;
