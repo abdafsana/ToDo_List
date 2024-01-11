@@ -5,6 +5,8 @@
   font-family: var(--font-JosefinSans, "Josefin Sans");
 }
 :root {
+  /* Light theme */
+
   --bg-white: #fff;
   --bg-Mercury: #e3e4f1;
   --bg-OsloGrey: #908f8f;
@@ -15,6 +17,13 @@
   --bg-JasminePurple: #ac2deb;
   --bg-CornflowerBlue: #5596ff;
   --font-JosefinSans: "Josefin Sans";
+
+  /* Dark theme */
+  --bg-Mirage:#171823;
+  --bg-EbonyClay:#25273D;
+  --bg-Raven:#767992;
+  --bg-Mulleds:#4D5067;
+  --bgPeriwinkleGrey:#C8CBE7;
 }
 @font-face {
   src: url("../fonts/JosefinSans-Bold.ttf");
@@ -63,6 +72,9 @@
   font-weight: 700;
   letter-spacing: 15px;
 }
+.section-about--icon>img{
+  cursor: pointer;
+}
 .main-section {
   width: 100%;
   height: 350px;
@@ -109,8 +121,8 @@
   font-weight: 400;
   border-radius: 5px;
   letter-spacing: -0.25px;
-  padding-left: 25px;
 }
+
 .active-checkbox:checked {
   background-image: url("../image/check.svg");
   border: none;
@@ -135,18 +147,20 @@
 .todo-list--about {
   color: var(--bg-MulledWine, #494c6b);
   font-size: 18px;
-  width: 92%;
+  width: 67%;
   font-weight: 400;
+  margin-left: auto;
   letter-spacing: -0.25px;
-  display: flex;
-  align-items: center;
-  padding-left: 40px;
-  cursor: pointer;
 }
 .todo-list--item > img {
-  width: 17.678px;
-  height: 17.678px;
-  cursor: pointer !important;
+  width: 96px;
+  height: 20px;
+  cursor: pointer;
+}
+.todo-list--item > img:last-child {
+  width: 25px;
+  height: 25px;
+  margin-left: 3px;
 }
 .list-footer {
   width: 100%;

@@ -1,33 +1,69 @@
 const list = document.querySelector(".todo-container--create");
 const todolist = document.querySelector(".todo-list");
-const txtbutton = document.querySelector(".todo-text");
+const todoInput = document.querySelector(".todo-text");
 const listFooter = document.querySelector(".list-footer");
 
-console.log(txtbutton.value);
-list.addEventListener("submit", function (x) {
-  x.preventDefault();
-  // alert()
-  CreateList();
+list.addEventListener("submit", function (event) {
+  event.preventDefault();
+  if(todoInput.dataset.todoid){
+    let listElement=document.querySelector(`[data-id="${todoInput.dataset.todoid}"]>p`);
+    listElement.textContent=todoInput.value;
+  }
+  else{
+    createList();
+  }
 });
 
-function CreateList() {
-  const li = document.createElement("li");
-  li.classList.add("todo-list--item");
-  li.innerHTML = `
-    <input type="checkbox" class="todo-checkbox active-checkbox"  />
-    <p class="todo-list--about" onclick="TxtDecoration(this)">${txtbutton.value}</p>
-    <img src="./assets/image/remove.svg" alt="" / onclick="RemoveList(this)">
-    `;
-  todolist.appendChild(li);
-  txtbutton.value = "";
-  listFooter.style.display = "flex";
+let id=1;
+function createList() {
+  if (todoInput.value) {
+    const li = document.createElement("li");
+    li.classList.add("todo-list--item");
+    li.innerHTML = `
+      <input type="checkbox" class="todo-checkbox active-checkbox" onclick="updateStatus(this)" />
+      <p class="todo-list--about" >${todoInput.value}</p>
+      <img src="./assets/image/edit.svg" alt="edit image" data-id="${id}" onclick="editTodo(this)">
+      <img src="./assets/image/remove.svg" alt="remove image" onclick="removeList(this)">
+      `;
+      li.setAttribute("data-id",id);
+      todolist.prepend(li);
+      todoInput.value = "";
+      listFooter.style.display = "flex";
+      id++;
+  }
 }
 
-function TxtDecoration(event) {
-  event.classList.toggle("active");
-  // const cancel=document.querySelector(".todo-list--item img")
-  // cancel.style.display="block";
+function updateStatus(todoText) {
+  // console.log(todoText.checked);
+  if(todoText.checked){
+    todoText.nextElementSibling.classList.add("active");
+  }
+  else{
+    todoText.nextElementSibling.classList.remove("active");
+  }
 }
-function RemoveList(event){
+function removeList(event){
   event.parentElement.remove();
 }
+function editTodo(editTodoImg){
+  let todoText=editTodoImg.previousElementSibling;
+  // console.log(todoText);
+  // console.log(editTodoImg.dataset.id);
+  todoInput.setAttribute("data-todoid", editTodoImg.parentElement.dataset.id);
+  todoInput.value=todoText.textContent;
+}
+
+// Dark theme
+
+const themeIcon=document.querySelector(".section-about--icon");
+const root=document.querySelector(":root");
+themeIcon.addEventListener("click",function(){
+  document.body.classList.toggle("active");
+  if(document.body.classList.contains("active")){
+    themeIcon.querySelector("img").src="./assets/image/sun.svg";
+    // root.style.setProperty("--bg-white","--bg--Mirage")
+  }
+  else{
+    themeIcon.querySelector("img").src="./assets/image/moon.svg";
+  }
+})
