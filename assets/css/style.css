@@ -10,7 +10,7 @@
   --bg-white: #fff;
   --bg-Mercury: #e3e4f1;
   --bg-OsloGrey: #908f8f;
-  --bg--GreyGoose:#D1D2DA;
+  --bg--GreyGoose: #d1d2da;
   --bg-DodgerBlue: #3a7cfd;
   --bg-MulledWine: #494c6b;
   --bg-MountainMist: #9495a5;
@@ -19,11 +19,13 @@
   --font-JosefinSans: "Josefin Sans";
 
   /* Dark theme */
-  --bg-Mirage:#171823;
-  --bg-EbonyClay:#25273D;
-  --bg-Raven:#767992;
-  --bg-Mulleds:#4D5067;
-  --bgPeriwinkleGrey:#C8CBE7;
+  --bg-Mirage: #171823;
+  --bg-EbonyClay: #25273d;
+  --bg-Raven: #767992;
+  --bg-Mulleds: #4d5067;
+  --bg-PeriwinkleGrey: #c8cbe7;
+  --bg-ShipGrey: #393a4b;
+  --bg-Comet: #5b5e7e;
 }
 @font-face {
   src: url("../fonts/JosefinSans-Bold.ttf");
@@ -34,6 +36,12 @@
   src: url("../fonts/JosefinSans-Regular.ttf");
   font-family: "Josefin Sans";
   font-weight: 400;
+}
+body {
+  background-color: var(--bg-white, #fff);
+}
+body.active {
+  background-color: var(--bg-Mirage, #171823);
 }
 .header-container {
   width: 100%;
@@ -72,7 +80,7 @@
   font-weight: 700;
   letter-spacing: 15px;
 }
-.section-about--icon>img{
+.section-about--icon > img {
   cursor: pointer;
 }
 .main-section {
@@ -103,6 +111,9 @@
   align-items: center;
   justify-content: space-around;
 }
+body.active .todo-container--create {
+  background-color: var(--bg-EbonyClay, #25273d);
+}
 .todo-checkbox {
   appearance: none;
   width: 24px;
@@ -111,6 +122,9 @@
   border-radius: 50%;
   border: 1px solid var(--bg-OsloGrey, #908f8f);
   cursor: pointer;
+}
+body.active .todo-checkbox {
+  background-color: var(--bg-EbonyClay, #25273d);
 }
 .todo-text {
   width: 90%;
@@ -122,7 +136,10 @@
   border-radius: 5px;
   letter-spacing: -0.25px;
 }
-
+body.active .todo-text {
+  background-color: var(--bg-EbonyClay, #25273d);
+  color: var(--bg-Raven, #767992);
+}
 .active-checkbox:checked {
   background-image: url("../image/check.svg");
   border: none;
@@ -131,18 +148,26 @@
   width: 100%;
   height: auto;
   margin-top: 25px;
+  border-radius: 5px;
   box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+}
+body.active .todo-list {
+  box-shadow: 0px 0px 50px 0px var(--bg-EbonyClay, #25273d);
 }
 .todo-list--item {
   width: 100%;
   height: 64px;
+  border-radius: 5px;
   margin: auto;
   display: flex;
   align-items: center;
   background-color: var(--bg-white, #fff);
-  border-bottom: 1px solid var(--bg-Mercury, #e3e4f1);
-  border-radius: 5px;
+  border: 1px solid var(--bg-Mercury, #e3e4f1);
   padding: 5px;
+}
+body.active .todo-list--item {
+  background-color: var(--bg-EbonyClay, #25273d);
+  border-color: var(--bg-ShipGrey, #393a4b);
 }
 .todo-list--about {
   color: var(--bg-MulledWine, #494c6b);
@@ -151,6 +176,9 @@
   font-weight: 400;
   margin-left: auto;
   letter-spacing: -0.25px;
+}
+body.active .todo-list--about {
+  color: var(--bgPeriwinkleGrey, #c8cbe7);
 }
 .todo-list--item > img {
   width: 96px;
@@ -178,6 +206,9 @@
   letter-spacing: -0.194px;
   display: none;
 }
+body.active .list-footer {
+  background-color: var(--bg-EbonyClay, #25273d);
+}
 .footer-list {
   display: flex;
   gap: 15px;
@@ -188,8 +219,8 @@
 .footer-list > li {
   list-style: none;
 }
-.footer-list > li > a {
-  text-decoration: none;
+.footer-list > li > p {
+  /* text-decoration: none; */
   font-weight: 700;
   color: var(--bg-MountainMist, #9495a5);
 }
@@ -199,22 +230,29 @@
 .list-footer--item > p:hover {
   color: var(--bg-MulledWine, #494c6b);
 }
-.footer-container{
-    width: 100%;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--bg-MountainMist, #9495a5);
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.194px;
+.footer-container {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+.footer-container > p {
+  color: var(--bg-MountainMist, #9495a5);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.194px;
+}
+body.active .footer-container > p {
+  color: var(--bg-Comet, #5b5e7e);
+}
 input:focus-visible {
-    outline-color: transparent;
+  outline-color: transparent;
 }
-.active{
+.txtDecoration-active {
   text-decoration: line-through;
-  color: var(--bg--GreyGoose,#D1D2DA);
+  color: var(--bg--GreyGoose, #d1d2da);
+}
+body.active .txtDecoration-active {
+  color: var(--bg-Mulleds, #4d5067);
 }
